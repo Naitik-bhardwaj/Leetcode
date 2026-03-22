@@ -15,7 +15,7 @@
 15                    sp++;
 16                    ep--;
 17            
-18                    while(sp<ep && nums[ep]==nums[sp-1]){
+18                    while(sp<ep && nums[sp]==nums[sp-1]){
 19                        sp++;
 20                    } 
 21                    while(sp<ep && nums[ep]==nums[ep+1]){
