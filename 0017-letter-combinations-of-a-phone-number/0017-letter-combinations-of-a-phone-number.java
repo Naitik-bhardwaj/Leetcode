@@ -12,10 +12,11 @@ class Solution {
             return ;
         }
         char ch = digits.charAt(0);
+        String rem = digits.substring(1);
         int num = ch -'0';
         String press = map[num];
         for(int i=0;i<press.length();i++){
-            combination(digits.substring(1), ans+press.charAt(i), list);
+            combination(rem, ans+press.charAt(i), list);
         }
     }
 }
