@@ -5,10 +5,10 @@ class Solution {
         Arrays.sort(nums);
         List<Integer> list = new ArrayList<>();
         boolean[] visited = new boolean[n];
-        solve(nums,visited,0, list);
+        solve(nums,visited, list);
         return ans;
     }
-    public void solve(int[] nums, boolean[] visited, int idx, List<Integer> list){
+    public void solve(int[] nums, boolean[] visited,  List<Integer> list){
         if(list.size() == nums.length) {
             ans.add(new ArrayList<>(list));
             return;
@@ -22,7 +22,7 @@ class Solution {
             }
             list.add(nums[i]);
             visited[i] = true;
-            solve(nums, visited, idx+1, list);
+            solve(nums, visited, list);
             list.remove(list.size()-1);
             visited[i]  = false;
         }
