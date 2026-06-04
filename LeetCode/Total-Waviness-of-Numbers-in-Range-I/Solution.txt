@@ -1,0 +1,26 @@
+1class Solution {
+2    private int findAns(int n){
+3        String s = String.valueOf(n);
+4        if(s.length() < 3) return 0;
+5        int count = 0;
+6        for(int i=1;i<s.length()-1;i++){
+7            int left = s.charAt(i-1) - '0';
+8            int curr = s.charAt(i) - '0';
+9            int right = s.charAt(i+1) - '0';
+10            
+11            if(left < curr && curr > right) count++;
+12            else if(left > curr && right>curr) count++;
+13        }
+14
+15        return count;
+16
+17    }
+18    public int totalWaviness(int num1, int num2) {
+19        int ans = 0;
+20        for(int i=num1;i<=num2;i++){
+21            ans += findAns(i);
+22        }
+23        return ans;
+24
+25    }
+26}
