@@ -10,21 +10,23 @@ class Solution {
             graph.get(u).add(v);
             graph.get(v).add(u);
         }
-        boolean[] vis = new boolean[n];
-        return dfs(graph, source, destination, vis);
-     }
-     private boolean dfs(ArrayList<ArrayList<Integer>> graph, int source, int dest, boolean[] vis){
-        if(source == dest){
+
+        boolean[] visited = new boolean[n];
+        return dfs(graph, source, destination, visited);
+    }
+    private boolean dfs(ArrayList<ArrayList<Integer>> graph, int source, int destination, boolean[] visited){
+        if(source == destination){
             return true;
         }
-        vis[source] = true;
+        visited[source] = true;
         for(int neigh : graph.get(source)){
-            if(!vis[neigh]){
-                if(dfs(graph, neigh, dest, vis)){
+            if(!visited[neigh]){
+                if(dfs(graph, neigh, destination, visited)){
                     return true;
                 }
             }
         }
         return false;
-     }
+    }
+    
 }
